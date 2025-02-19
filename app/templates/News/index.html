@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{title}}</title>
+    <title>Title</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,44 +30,31 @@
         </div>
     </div>
 </nav>
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    Featured
-                </div>
-                {%for item in courses%}
-                <div class="card-body">
-                    <h5 class="card-title">{{item.title}}</h5>
-                    <p class="card-text">{{item.describtion |safe|linebreaks|truncatewords:50}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                 {%endfor%}
-            </div>
-        </div>
-
-        <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    Featured
-                </div>
-                {%for item in students%}
-                <div class="card-body">
-                    <h5 class="card-title">{{item.full_name}}</h5>
-                    <p class="card-text">{{item.email}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                {%endfor%}
-            </div>
-        </div>
+<div class="card">
+    {% for item in news %}
+    <div class="card-header">
+        {{item.category}}
     </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                {%if item.photo %}
+                <img src="{{item.photo.url}}" alt="" width="550">
+                {%else%}
+                <img src="https://picsum.photos/200" alt="">
+                {%endif%}
+            </div>
+            <div class="col-6">
+                <h5 class="card-title">{{item.title}}</h5>
+                <p class="card-text">{{item.context |safe|linebreaks|truncatewords:50}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
 </div>
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

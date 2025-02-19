@@ -11,3 +11,16 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ['title']
 admin.site.register(Student, StudentsAdmin)
 admin.site.register(Course, CourseAdmin)
+
+# class NewsAdmin(admin.ModelAdmin):
+#     list_display = ('id','title','context')
+#     list_display_links = ['title']
+#     search_fields = ['title']
+
+
+# class CategoriesAdmin(admin.ModelAdmin):
+#     list_display = ('id','title')
+#     list_display_links = ['title']
+#     search_fields = ['title']
+# admin.site.register(News,NewsAdmin)
+# admin.site.register(Categories,CategoriesAdmin)
